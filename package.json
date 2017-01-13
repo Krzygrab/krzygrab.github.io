@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio project by Krzygrab",
+  "main": "app.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krzygrab/portfolio.git"
+  },
+  "keywords": [
+    "scss",
+    "js",
+    "html5",
+    "npm"
+  ],
+  "author": "Krzysztof Grabowski <krzygrab@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Krzygrab/portfolio/issues"
+  },
+  "homepage": "https://github.com/Krzygrab/portfolio#readme"
+}
