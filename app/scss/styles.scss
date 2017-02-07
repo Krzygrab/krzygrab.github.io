@@ -1,0 +1,416 @@
+@import 'reset';
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+$light-green: #def1cb;
+$dark-green: #142600;
+
+$side-font: "Comfortaa";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+$main-font: "Maven Pro";
+
+body { 
+	position:relative;
+}
+
+a {
+	color:#333333;
+	text-decoration:none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $side-font;
+}
+
+p {
+	font-family: $main-font;
+}
+
+nav {
+	display:block;
+	position:fixed;
+	transform:rotate(45deg);
+	transform-origin: 50% 0%;
+	width:600px;
+	right:-300px;
+	font-family: $side-font, monospace;
+	font-weight:300;
+	font-size:20px;
+	text-transform: uppercase;
+	z-index:9999;
+
+		.burger {
+			height:90px;
+			margin: 0 auto;
+			width:100%;
+			position:relative;
+			text-align:center;
+			background-color: transparent;
+			transition:500ms all;
+
+			.burger-cont {
+				transform: rotate(-45deg);
+				position:relative;
+				display:inline-block;
+				margin-top:30px;
+				cursor: pointer;
+				width:40px;
+				height:40px;
+				transition: 0.5s all;
+				top:40px;
+
+
+
+				span {
+					width:40px;
+					display:block;
+					border:2px solid $dark-green;
+					border-radius:3px;
+					position:absolute;
+					transition: 0.5s all;			
+				}
+
+				span:nth-child(2),
+				span:nth-child(3) {
+					top:15px;
+				}
+
+				span:nth-child(4) {
+					top:30px;
+				}
+			}	
+		}
+
+		ul {
+			margin-top:0;
+			padding-left:0;
+			list-style-type: none;
+
+			li {
+				text-align: center;
+				padding: 10px 0;				
+				transition: all 500ms cubic-bezier(0.250, 0.250, 0.530, 1.505);
+				background-color: $dark-green;
+				color: #ffffff;
+				margin-top:-44px;
+				opacity: 0;
+			}
+
+			a:nth-child(4) li {
+				background-color: $dark-green;
+			}
+
+			a:nth-child(3) li {
+				background-color: lighten( $dark-green, 3% );
+			}
+
+			a:nth-child(2) li {
+				background-color: lighten( $dark-green, 6% );
+			}
+
+			a:nth-child(1) li {
+				background-color: lighten( $dark-green, 9% );
+			}
+
+			a:hover li {
+				background-color: lighten( $dark-green, 12% );
+			}
+
+		}
+
+	&.open { 
+
+		.burger {
+		background-color: lighten( $dark-green, 15% );
+
+			.burger-cont {
+				top:0;
+			}
+
+			span {
+				border-color: $light-green;
+			}
+
+			span:nth-child(1),
+			span:nth-child(4) {
+				opacity:0;
+			}
+
+			span:nth-child(2) {
+				transform:rotate(45deg);
+			}
+
+			span:nth-child(3) {
+				transform:rotate(-45deg);
+			}
+		}
+
+		li {
+			margin-top:-1px;
+			opacity:1;
+		}	
+	}
+}
+
+.holder {
+	height:100%;
+	width:1100px;
+	margin:0 auto;
+}
+
+section { 
+
+	height: 100vh;
+	position:relative;
+	text-align:center;
+	
+	h2 {
+		text-align:center;
+		text-transform: uppercase;
+		width:100%;
+	}
+
+	.holder {
+    	display: flex;
+    	flex-direction: row;
+
+    	
+    	article {
+    		padding-top:20px;
+    		z-index:2;
+
+    		h1 {
+    			font-family: $main-font, monospace;
+    		}
+    	}
+	}
+
+		.scroll-down {
+	    display: block;
+	    width: 32px;
+	    height: 32px;
+	    position: absolute;
+	    bottom: 25px;
+	    right: 0;
+	    left:0;
+	    z-index: 9;
+	    margin:auto;
+	    background:url('/img/arrow-down.png') no-repeat center top;
+	    cursor: pointer;
+	    -webkit-animation: icon-ef 1.5s ease infinite;
+	    -moz-animation: icon-ef 1.5s ease infinite;
+	    animation: icon-ef 1.5s ease infinite;
+	}
+	@-webkit-keyframes icon-ef {
+	    0%{opacity: 0.2; bottom: 30px;}
+	    50%{opacity: 1; bottom: 25px;}
+	    100%{opacity: 0.2; bottom: 30px;}
+	}
+	@-moz-keyframes icon-ef {
+	    0%{opacity: 0.2; bottom: 30px;}
+	    50%{opacity: 1; bottom: 25px;}
+	    100%{opacity: 0.2; bottom: 30px;}
+	}
+	@keyframes icon-ef {
+	    0%{opacity: 0.2; bottom: 30px;}
+	    50%{opacity: 1; bottom: 25px;}
+	    100%{opacity: 0.2; bottom: 30px;}
+	}	
+}	
+
+.section_home {
+	background-color: $light-green;
+
+    .holder {    	
+    	justify-content:center;
+    	align-items:top;
+    
+		article {
+			max-width:600px;
+			text-align:center;
+			height:initial;		
+		}
+
+}
+
+	.myself {
+		width: auto;
+	    position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    z-index: 2;
+	    max-height: 65%;
+	}	
+}
+
+.section_skills {
+	background-color: darken($light-green, 10%);
+	z-index:2;
+}
+
+.section_portfolio {
+	background-color: darken($light-green, 20%);
+	flex-direction: column;
+
+	.holder {
+		flex-direction: column;
+	}
+
+	header {
+		position:absolute;
+		width:inherit;
+
+		h2 {
+			margin:20px 0;
+		}
+	}
+	
+	.portfolio_items-container {
+		display:flex;
+		justify-content:space-around;
+		align-items:center;
+		flex-flow:row wrap;
+		width:100%;
+		height:100%;
+
+
+		.portfolio_item {
+			width: -webkit-calc(50% - 30px);
+    		width:    -moz-calc(50% - 30px);
+    		width:         calc(50% - 30px);
+			height: 25%;
+			max-height:300px;
+			max-width:600px;
+		    background-position: top;
+		    background-size: cover;
+		    position:relative;
+		    z-index:2;
+		    overflow:hidden;
+		    margin:0 30px;
+
+		    .portfolio_item-meta {
+		    	position:absolute;
+		    	background-color: rgba(20, 38, 0, 0.3);
+		    	bottom:0;
+		    	width:100%;
+		    	z-index:1;
+		    }
+
+		   // &.pirs {
+		    	background-image: url(/img/pirs.JPG);
+		   // }
+
+		    h3 {
+		    	text-align:center;
+		    	margin:10px 0;
+		    	text-transform:uppercase;
+
+		    }
+		}
+	}
+}
+
+.section_contact {
+	background-color: darken($light-green, 10%);
+}
+
+.fixed-background {
+    position: fixed;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    bottom: 0;
+    left: 0;
+}
+
+	.triangle { 
+		position:absolute;
+	}
+		.triangle:before {
+		content:"";
+		position:absolute;
+		bottom: 30px;
+		width: 0;
+		height: 0;
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		border-bottom: 60px solid;
+	}
+		.triangle:after {
+		content:"";
+		position:absolute;
+		bottom: -30px;
+		width: 0;
+		height: 0;
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		border-top: 60px solid;
+	}
+
+	.triangle_background {
+		position:fixed;
+	}
+
+	.triangle-cont {
+		position:absolute;
+	}
+
+	@for $k from 1 through 7 {
+		$even : $k * 2;	
+		.triangle_background-#{$even} {
+
+			@for $i from 1 through 10 {
+				$j: 70% - 7% * $i;
+  				.triangle-#{$i}.triangle:before,
+  				.triangle-#{$i}.triangle:after { border-top-color: darken($light-green, $j);
+  								   			 	 border-bottom-color: darken($light-green, $j); }
+  			}
+  		}
+  	}
+
+	 @for $k from 1 through 8 {
+	$odd : $k * 2 - 1;	
+	.triangle_background-#{$odd} {
+		@for $i from 1 through 10 {
+			$j: 80% - 7% * $i;
+  			.triangle-#{$i}.triangle:before,
+  			.triangle-#{$i}.triangle:after { border-top-color: darken($light-green, $j);
+  								   			 border-bottom-color: darken($light-green, $j); }
+  			}
+  		}
+  	}
+
+	@for $h from 1 through 15 {
+		$triangle-height: 60px;
+		$triangle-width : 30px;
+
+		.triangle_background-#{$h} {bottom: -210px + $triangle-height * $h;
+									right: 270px - $triangle-width * $h; }
+		}
+
+	@for $i from 1 through 10 {
+  		.triangle-#{$i} { bottom : -420px + 60px * $i;
+  					  	  right: 30px + 30px * $i; }
+	}
+
+
+
+	@media (max-width: 800px) {
+	section .holder {
+	    width: 100%;
+	    height: 100vh;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+    	flex-direction: column;
+	}
+}
+
+
+
