@@ -10,11 +10,12 @@
 $light-green: #def1cb;
 $dark-green: #142600;
 
-$side-font: "Comfortaa";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+$side-font: "Russo One";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 $main-font: "Maven Pro";
 
 body { 
 	position:relative;
+	    color: #212121;
 }
 
 a {
@@ -26,7 +27,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $side-font;
 }
 
-p {
+p,
+li {
 	font-family: $main-font;
 }
 
@@ -50,18 +52,23 @@ nav {
 			position:relative;
 			text-align:center;
 			background-color: transparent;
-			transition:500ms all;
+			transition:400ms all;
+			z-index: 3;
 
 			.burger-cont {
 				transform: rotate(-45deg);
 				position:relative;
 				display:inline-block;
-				margin-top:30px;
 				cursor: pointer;
 				width:40px;
 				height:40px;
-				transition: 0.5s all;
+				transition: 400ms all;
 				top:40px;
+				z-index:3;
+				@media (min-width: 768px) {
+					margin-top:30px;
+				}
+
 
 
 
@@ -82,6 +89,10 @@ nav {
 				span:nth-child(4) {
 					top:30px;
 				}
+			}
+
+			.burger-cont:hover {
+				opacity: 0.6;
 			}	
 		}
 
@@ -91,32 +102,38 @@ nav {
 			list-style-type: none;
 
 			li {
-				text-align: center;
-				padding: 10px 0;				
-				transition: all 500ms cubic-bezier(0.250, 0.250, 0.530, 1.505);
-				background-color: $dark-green;
-				color: #ffffff;
+				text-align: center;				
 				margin-top:-44px;
+				transition: all 500ms cubic-bezier(0.250, 0.250, 0.530, 1.505);
 				opacity: 0;
+
+				a {
+					color: #ffffff;
+					padding: 10px 0;
+					transition: all 500ms cubic-bezier(0.250, 0.250, 0.530, 1.505);
+					background-color: $dark-green;
+					display:inline-block;
+					width:100%;
+				}
 			}
 
-			a:nth-child(4) li {
+			li:nth-child(4) a {
 				background-color: $dark-green;
 			}
 
-			a:nth-child(3) li {
+			li:nth-child(3) a {
 				background-color: lighten( $dark-green, 3% );
 			}
 
-			a:nth-child(2) li {
+			li:nth-child(2) a {
 				background-color: lighten( $dark-green, 6% );
 			}
 
-			a:nth-child(1) li {
+			li:nth-child(1) a {
 				background-color: lighten( $dark-green, 9% );
 			}
 
-			a:hover li {
+			 li a:hover {
 				background-color: lighten( $dark-green, 12% );
 			}
 
@@ -128,7 +145,9 @@ nav {
 		background-color: lighten( $dark-green, 15% );
 
 			.burger-cont {
-				top:0;
+				@media (min-width: 768px) {
+					top:0;
+				}
 			}
 
 			span {
@@ -149,6 +168,10 @@ nav {
 			}
 		}
 
+		ul {
+			box-shadow: 0 5px 10px #212121;
+		}
+
 		li {
 			margin-top:-1px;
 			opacity:1;
@@ -163,29 +186,41 @@ nav {
 }
 
 section { 
-
 	height: 100vh;
 	position:relative;
 	text-align:center;
+	overflow:hidden;
+
+	h1 {
+		font-family: $main-font;
+		color: $dark-green;
+	}
 	
 	h2 {
 		text-align:center;
 		text-transform: uppercase;
 		width:100%;
+		font-size:30px;
 	}
 
 	.holder {
     	display: flex;
     	flex-direction: row;
+    	@media (max-width: 1100px)
+			{
+			    width: 100%;
+			}
+		@media (max-width: 800px) {
+            align-items: baseline;
+            flex-direction: column;
+        }
 
     	
     	article {
-    		padding-top:20px;
+    		padding-top:25px;
     		z-index:2;
-
-    		h1 {
-    			font-family: $main-font, monospace;
-    		}
+    		border-radius:8px;
+    		margin:50px 20px;
     	}
 	}
 
@@ -226,13 +261,31 @@ section {
 	background-color: $light-green;
 
     .holder {    	
-    	justify-content:center;
-    	align-items:top;
+    	justify-content: flex-start;
+    	align-items:center;
     
 		article {
 			max-width:600px;
 			text-align:center;
-			height:initial;		
+			height:initial;
+			background-color: rgba(255, 255, 255, 0.6);
+			transition: 700ms left ease-out;
+			position: relative;
+
+			p {
+				font-size: 20px;
+    			line-height: 24px;
+
+    			span {
+    				    font-weight: bold;
+					    color: #3d611a;
+    			}
+
+    			.hello,
+    			.skills {
+    				font-size: 24px;
+    			}
+			}		
 		}
 
 }
@@ -243,18 +296,138 @@ section {
 	    bottom: 0;
 	    right: 0;
 	    z-index: 2;
-	    max-height: 65%;
+	    max-height: 80%;
+    	max-width: calc(100% - 600px);
 	}	
 }
 
 .section_skills {
 	background-color: darken($light-green, 10%);
 	z-index:2;
+
+	.holder {
+		flex-direction:column;
+		justify-content:flex-start;
+		position:relative;
+
+		.skills {
+				display:flex;
+				justify-content:space-around;
+			}
+
+		.skills-learned {
+			max-width:700px;
+		}
+
+		.skills-learning {
+			max-width:350px;
+		}
+
+		.skills-learned,
+		.skills-learning {
+			display:flex;
+			justify-content:center;
+			flex-wrap:wrap;
+
+			h3 {
+				width: 100%;
+			    padding-bottom: 50px;
+			    font-size: 24px;
+			}
+
+			.skill {
+				position:relative;
+				width:120px;
+				height:90px;
+				padding-top:30px;
+				transform: rotateX(-90deg);
+			}
+
+			.skill5,
+			.skill9 {
+				margin-left:120px;
+			}
+
+			.skill14 {
+				margin-top:-60px;
+			}
+
+			.skill2 img,
+			.skill4 img {
+				max-width:53px;
+			}
+
+			.skill:before {
+			content:"";
+			position:absolute;
+			left:0;
+			bottom: 60px;
+			width: 0;
+			height: 0;
+			border-left: 60px solid transparent;
+			border-right: 60px solid transparent;
+			border-bottom: 120px solid $light-green;
+			z-index:-1;
+			}
+
+			.skill:after {
+			content:"";
+			position:absolute;
+			bottom: -60px;
+			left:0;
+			width: 0;
+			height: 0;
+			border-left: 60px solid transparent;
+			border-right: 60px solid transparent;
+			border-top: 120px solid $light-green;
+			z-index:-1;
+			}
+
+			@for $k from 1 through 14 {	
+
+				$j: 50 - $k * 2;
+		
+				.skill#{$k}:before,
+				.skill#{$k}:after {
+		  			border-top-color: darken($light-green, $j);
+		  			border-bottom-color: darken($light-green, $j); 
+		  		}
+		  	}
+
+			img {
+				max-width:70px;
+				margin:0 auto;
+				opacity:0;
+				transition:500ms all;
+
+			}
+		}
+	}
+
+	&.visible {
+		@for $i from 1 through 14 {
+			$j: 200ms + 70ms * $i;
+			.skill#{$i} img,
+			.skill#{$i} {
+				transition-delay: $j !important;
+			}
+		}
+
+		.skill {
+			transform: rotateX(0deg) !important;
+			transition: all 700ms;
+		}
+
+		img {
+			opacity: 1 !important;
+		}  
+	}
 }
 
 .section_portfolio {
-	background-color: darken($light-green, 20%);
+	background-color: $light-green;
 	flex-direction: column;
+	z-index:3;
 
 	.holder {
 		flex-direction: column;
@@ -265,50 +438,182 @@ section {
 		width:inherit;
 
 		h2 {
-			margin:20px 0;
+			margin:30px 0;
 		}
 	}
 	
 	.portfolio_items-container {
 		display:flex;
 		justify-content:space-around;
-		align-items:center;
 		flex-flow:row wrap;
 		width:100%;
-		height:100%;
 
 
 		.portfolio_item {
+			display:flex;
+		    flex-direction:column;
+		    align-items:center;
 			width: -webkit-calc(50% - 30px);
     		width:    -moz-calc(50% - 30px);
     		width:         calc(50% - 30px);
-			height: 25%;
-			max-height:300px;
 			max-width:600px;
-		    background-position: top;
-		    background-size: cover;
 		    position:relative;
 		    z-index:2;
 		    overflow:hidden;
-		    margin:0 30px;
+		    margin:10px 15px;
+		    border-top: 2px solid;
 
-		    .portfolio_item-meta {
-		    	position:absolute;
-		    	background-color: rgba(20, 38, 0, 0.3);
-		    	bottom:0;
-		    	width:100%;
-		    	z-index:1;
+		    .overlay {
+		    	position:relative;
+		    	line-height:0;
+		    	overflow:hidden;
+
+		    	&:after {
+		    		content: "";
+		    		position:absolute;
+		    		width:100%;
+		    		height:100%;		    		    
+				    top: 0;
+				    left: 0;
+				    transition: 300ms all;
+				    background-color: transparentize($dark-green, 0.9);				    
+		    	}
+
+		    	&:before {
+		    		    content: "+";
+					    position: absolute;
+					    width: 40px;
+					    height: 40px;
+					    right: 20px;
+					    bottom: 20px;
+					    background-color: $dark-green;
+					    line-height: 40px;
+					    border-radius: 20px;
+					    font-size: 32px;
+					    color: $light-green;
+					    transition: 300ms all;
+					    z-index:3;
+		    	}
 		    }
 
-		   // &.pirs {
-		    	background-image: url(/img/pirs.JPG);
-		   // }
+		    img {
+		    		transition: 300ms all;
+		    		width:100%;
+		    }
+
+		    button {
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;
+				    transform: translate(-50%, -50%);
+				    background-color: transparent;
+				    padding: 15px;
+				    text-transform: uppercase;
+				    border: none;;
+				    color: $dark-green;
+				    transition: 300ms all;
+				    opacity:0;
+				    font-family:$side-font;
+				    font-size:20px;
+				    z-index:10;
+				    cursor:pointer;
+				    will-change:transform; 
+
+				    &:before {
+				    	content:"";
+				    	position:absolute;
+				    	bottom:0;
+				        right:-50px;
+				        height:20px;
+				        width:100px;
+				        border-right: 2px solid $dark-green;
+				        border-bottom: 2px solid $dark-green;
+				        will-change:transform;
+				        transition:500ms all; 				    
+					}
+
+				    &:after {
+				    	content:"";
+				    	position:absolute;
+				    	top:0;
+				        left:-50px;
+				        height:20px;
+				        width:100px;
+				        border-left: 2px solid $dark-green;
+				        border-top: 2px solid $dark-green;
+				        will-change:transform;
+				        transition:500ms all; 				    
+				    }
+			}
+
+		    .portfolio_item-meta {
+		    	bottom:0px;
+		    	padding:10px 0;
+		    	width:100%;
+		    	z-index:1;
+		    	max-width:400px;
+
+		    	a:hover	.overlay:before {
+		    		transform: scale(1.05) rotate(90deg);
+		    	}
+
+		    	a:hover	.overlay:after {
+		    		background-color: transparentize(#ffffff, 0.4);
+		    		transform: scale(1.05);
+		    	}
+
+		    	a:hover img {
+		    		transform: scale(1.05);
+		    	}
+
+		    	a:hover button {
+		    		opacity:1;
+
+		    		 &:after {
+		    		 	left:0;
+		    		 }
+
+		    		 &:before {
+		    		 	right:0;
+		    		 }
+		    	}
+		    }		    
 
 		    h3 {
 		    	text-align:center;
 		    	margin:10px 0;
 		    	text-transform:uppercase;
+		    	font-size:24px;
+		    	font-family: $main-font;
 
+		    }
+
+		    ul {
+		    	text-align:left;
+		    	margin:0 auto;
+		    	list-style-type: none;
+		    	padding-top:15px;
+		    	background-color: $light-green;
+
+		    	li {
+		    		position:relative;
+		    		padding-left:10px;
+		    		padding-bottom:15px;
+		    		font-size:16px;
+		    	}
+
+		    	li:before {
+		    		content:'';
+		    		position:absolute;
+		    		left: -10px;
+				    top: 0px;
+				    height: 20px;
+		    		width:10px;
+		    		background-image: url('/img/pointer.png');
+				    background-repeat: no-repeat;
+				    line-height: 30px;
+				    padding-left: 30px;
+		    	}
 		    }
 		}
 	}
@@ -316,6 +621,15 @@ section {
 
 .section_contact {
 	background-color: darken($light-green, 10%);
+
+	.holder {
+		flex-direction:column;
+
+		.contact {
+			display:flex;
+			justify-content:center;
+		}
+	}
 }
 
 .fixed-background {
@@ -365,8 +679,8 @@ section {
 		$even : $k * 2;	
 		.triangle_background-#{$even} {
 
-			@for $i from 1 through 10 {
-				$j: 70% - 7% * $i;
+			@for $i from 1 through 9 {
+				$j: 65% - 7% * $i;
   				.triangle-#{$i}.triangle:before,
   				.triangle-#{$i}.triangle:after { border-top-color: darken($light-green, $j);
   								   			 	 border-bottom-color: darken($light-green, $j); }
@@ -377,8 +691,8 @@ section {
 	 @for $k from 1 through 8 {
 	$odd : $k * 2 - 1;	
 	.triangle_background-#{$odd} {
-		@for $i from 1 through 10 {
-			$j: 80% - 7% * $i;
+		@for $i from 1 through 9 {
+			$j: 70% - 7% * $i;
   			.triangle-#{$i}.triangle:before,
   			.triangle-#{$i}.triangle:after { border-top-color: darken($light-green, $j);
   								   			 border-bottom-color: darken($light-green, $j); }
@@ -399,18 +713,6 @@ section {
   					  	  right: 30px + 30px * $i; }
 	}
 
-
-
-	@media (max-width: 800px) {
-	section .holder {
-	    width: 100%;
-	    height: 100vh;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-    	flex-direction: column;
-	}
-}
 
 
 
