@@ -604,7 +604,8 @@ section {
       height: initial;
       background-color: rgba(255, 255, 255, 0.6);
       transition: 700ms left ease-out;
-      position: relative; }
+      position: relative;
+      visibility: hidden; }
       .section_home .holder article p {
         font-size: 20px;
         line-height: 24px; }
@@ -614,6 +615,8 @@ section {
         .section_home .holder article p .hello,
         .section_home .holder article p .skills {
           font-size: 24px; }
+    .section_home .holder img {
+      visibility: hidden; }
   .section_home .myself {
     width: auto;
     position: absolute;
@@ -779,55 +782,7 @@ section {
       .section_skills .holder .skills-learning img {
         max-width: 70px;
         margin: 0 auto;
-        opacity: 0;
         transition: 500ms all; }
-  .section_skills.visible .skill1 img,
-  .section_skills.visible .skill1 {
-    transition-delay: 270ms !important; }
-  .section_skills.visible .skill2 img,
-  .section_skills.visible .skill2 {
-    transition-delay: 340ms !important; }
-  .section_skills.visible .skill3 img,
-  .section_skills.visible .skill3 {
-    transition-delay: 410ms !important; }
-  .section_skills.visible .skill4 img,
-  .section_skills.visible .skill4 {
-    transition-delay: 480ms !important; }
-  .section_skills.visible .skill5 img,
-  .section_skills.visible .skill5 {
-    transition-delay: 550ms !important; }
-  .section_skills.visible .skill6 img,
-  .section_skills.visible .skill6 {
-    transition-delay: 620ms !important; }
-  .section_skills.visible .skill7 img,
-  .section_skills.visible .skill7 {
-    transition-delay: 690ms !important; }
-  .section_skills.visible .skill8 img,
-  .section_skills.visible .skill8 {
-    transition-delay: 760ms !important; }
-  .section_skills.visible .skill9 img,
-  .section_skills.visible .skill9 {
-    transition-delay: 830ms !important; }
-  .section_skills.visible .skill10 img,
-  .section_skills.visible .skill10 {
-    transition-delay: 900ms !important; }
-  .section_skills.visible .skill11 img,
-  .section_skills.visible .skill11 {
-    transition-delay: 970ms !important; }
-  .section_skills.visible .skill12 img,
-  .section_skills.visible .skill12 {
-    transition-delay: 1040ms !important; }
-  .section_skills.visible .skill13 img,
-  .section_skills.visible .skill13 {
-    transition-delay: 1110ms !important; }
-  .section_skills.visible .skill14 img,
-  .section_skills.visible .skill14 {
-    transition-delay: 1180ms !important; }
-  .section_skills.visible .skill {
-    transform: rotateX(0deg) !important;
-    transition: all 700ms; }
-  .section_skills.visible img {
-    opacity: 1 !important; }
 
 .section_portfolio {
   background-color: #def1cb;

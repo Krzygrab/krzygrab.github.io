@@ -271,6 +271,7 @@ section {
 			background-color: rgba(255, 255, 255, 0.6);
 			transition: 700ms left ease-out;
 			position: relative;
+			visibility:hidden;
 
 			p {
 				font-size: 20px;
@@ -286,6 +287,10 @@ section {
     				font-size: 24px;
     			}
 			}		
+		}
+
+		img {
+			visibility:hidden;
 		}
 
 }
@@ -397,30 +402,10 @@ section {
 			img {
 				max-width:70px;
 				margin:0 auto;
-				opacity:0;
 				transition:500ms all;
 
 			}
 		}
-	}
-
-	&.visible {
-		@for $i from 1 through 14 {
-			$j: 200ms + 70ms * $i;
-			.skill#{$i} img,
-			.skill#{$i} {
-				transition-delay: $j !important;
-			}
-		}
-
-		.skill {
-			transform: rotateX(0deg) !important;
-			transition: all 700ms;
-		}
-
-		img {
-			opacity: 1 !important;
-		}  
 	}
 }
 

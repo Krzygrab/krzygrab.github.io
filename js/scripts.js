@@ -1,8 +1,5 @@
 $( document ).ready(function() {
 
-	if ($('.section_home').hasClass('visible')) {
-		$(this).find('article').addClass('active').delay( 800 );
-	}
 
 	$(function () {
     $(window).scroll(function (e) {
@@ -79,6 +76,8 @@ $( document ).ready(function() {
 	window.sr = ScrollReveal();
 	sr.reveal('article', { origin: 'left', distance: '200px', easing: 'ease-in-out' });
 	sr.reveal('.myself', { origin: 'right', distance: '200px', easing: 'ease-in-out', scale: 1 });
-	sr.reveal('.portfolio_item');
+	sr.reveal('.portfolio_item:nth-of-type(2n-1)', {origin: 'left'});
+	sr.reveal('.portfolio_item:nth-of-type(2n)', {origin: 'right'});
+	sr.reveal('.skill');
 
 });
